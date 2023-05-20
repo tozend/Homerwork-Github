@@ -23,7 +23,9 @@ class Config:
         target = os.environ.get('TARGET', Config.DEFAULT_ENV)
 
         # Read target .json file
-        path_to_config = f"..\\..\\env_config\\{target}.json"
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        path_to_config = os.path.join(current_dir, '..', '..', 'env_config', f'{target}.json')
+
         with open(path_to_config) as f:
             config_from_json = json.load(f)
 
