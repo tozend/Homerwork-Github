@@ -19,12 +19,14 @@ class GitHubAPIClient:
         """
         print('- - - LOGOUT - - -')
 
-    def search_topics(self, topic_name):
+    def search_topics(self, topic_name, *, per_page=30, page=1):
         """
         Searches and returns repositories by given topic name
 
         Args:
             topic_name: Metadata used for searching repos (short_description, description, name, or display_name)
+            per_page: The number of results per page (max 100). Default: 30
+            page: Page number of the results to fetch. Default: 1
 
         Returns:
             List of repositories that matched given topic name.
@@ -36,7 +38,8 @@ class GitHubAPIClient:
                 "X-GitHub-Api-Version": "2022-11-28",
             },
             params={
-                'q': str(topic_name)
+                'q': str(topic_name),
+                'per_page': per_page
             }
         )
         # Status code information
