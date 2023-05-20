@@ -12,7 +12,7 @@ def fixture_github_api_client():
     returns api object from fixture and finally logout user.
     """
     api = GitHubAPIClient()
-    api.login(username=Config.get_property("LOGIN"), password=Config.get_property("PASSWORD"))
+    api.login(username=Config.get_property("USERNAME"), password=Config.get_property("PASSWORD"))
 
     yield api
 
