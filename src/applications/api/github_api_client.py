@@ -46,5 +46,5 @@ class GitHubAPIClient:
         r.raise_for_status()
 
         # Return items from the body of response
-        body = r.json()['items'][0]
+        body = r.json()['items']
         return body
