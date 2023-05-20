@@ -39,7 +39,8 @@ class GitHubAPIClient:
             },
             params={
                 'q': str(topic_name),
-                'per_page': per_page
+                'per_page': per_page,
+                'page': page
             }
         )
         # Status code information
